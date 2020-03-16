@@ -2,9 +2,19 @@
 import sys
 import pandas as pd
 import numpy as np
+import os
+
+steps = os.getenv("STEPS",'./')
+
+for x in range(10) :
+    f = open('{}{}.txt'.format(steps,x),'w')
+    f.write("{}\n".format(x))
 
 def main():
     # print command line arguments
+    for x in range(10):
+        f = open('{}{}.txt'.format(steps, x), 'w')
+        f.write("{}\n".format(x))
     input_dir, output_dir = sys.argv[1:]
     predicted_result = []
     df = np.loadtxt(input_dir + '/data.data')
